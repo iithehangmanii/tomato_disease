@@ -1,9 +1,7 @@
 import keras
 from keras.models import load_model
 import numpy as np
-from glob import glob
 from keras.preprocessing import image                  
-from tqdm import tqdm
 import os
 import urllib.request
 from flask import Flask, flash, request, redirect, url_for, render_template
