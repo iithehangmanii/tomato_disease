@@ -1,0 +1,5 @@
+flask
+keras==2.5.0
+werkzeug
+gunicorn
+numpy
