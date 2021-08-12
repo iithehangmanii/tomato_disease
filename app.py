@@ -1,8 +1,8 @@
-import tensorflow.keras as keras
-from tensorflow.keras.models import load_model
+import keras
+from keras.models import load_model
 import numpy as np
 from glob import glob
-from tensorflow.keras.preprocessing import image                  
+from keras.preprocessing import image                  
 from tqdm import tqdm
 import os
 import urllib.request
@@ -50,10 +50,8 @@ def upload_image():
 	if file and allowed_file(file.filename):
 		model2 = load_model('trained_modelDNN1.h5')
 		filename = secure_filename(file.filename)
-		print(filename)
 		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 		filename1 = "static/uploads/" + filename  
-		print(filename1)
 		test_tensors = paths_to_tensor(filename1)/255
 		pred=model2.predict(test_tensors)
 		pred=np.argmax(pred);
