@@ -52,7 +52,8 @@ def upload_image():
 		test_tensors = paths_to_tensor(filename1)/255
 		pred=model2.predict(test_tensors)
 		pred=np.argmax(pred);
-		flash('given Image Predicted  = '+ str(pred))
+		names = ['Tomato__Bacterial_spot', 'Tomato_Early_blight', 'Tomato_Late_blight', 'Tomato_Leaf_Mold', 'Tomato_Septoria_leaf_spot', 'Tomato_Spider_mites Two-spotted_spider_mite', 'Tomato_Target_Spot', 'Tomato_Tomato_Yellow_Leaf_Curl_Virus', 'Tomato_Tomato_mosaic_virus', 'Tomato__healthy']
+		flash('The Disease Predicted is: '+ names[pred])
 		return render_template('upload.html', filename=filename)
 	else:
 		flash('Allowed image types are -> png, jpg, jpeg, gif')
